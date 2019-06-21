@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Serenity.Objects;
+using Tranquility.Objects;
 
-namespace Serenity.Modules
+namespace Tranquility.Modules
 {
     public interface IModule
     {

@@ -2,29 +2,24 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Serenity.Modules;
-using Serenity.Objects;
+using Tranquility.Modules;
+using Tranquility.Objects;
 
-namespace Serenity.Helpers
+namespace Tranquility.Helpers
 {
     internal class MouseHelper
     {
+        public static MouseProxy Proxy;
+
         [DllImport("User32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
-
-        [DllImport("user32.dll")]
-        private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
-
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
         /// <summary>
         /// Clicks the mouse.
         /// </summary>
         public static void Click()
         {
-            mouse_event(0x02, 0, 0, 0, 0);
-            mouse_event(0x04, 0, 0, 0, 0);
+            Proxy.Fire();
         }
 
         /// <summary>
@@ -121,20 +116,20 @@ namespace Serenity.Helpers
         {
             if (!async)
             {
-                mouse_event(0x1, step.X, step.Y, 0, 0);
+                Proxy.Move(step.X, step.Y);
             }
             else
             {
                 // Move X.
                 new Thread(() =>
                 {
-                    mouse_event(0x1, step.X, 0, 0, 0);
+                    Proxy.Move(step.X, 0);
                 }).Start();
 
                 // Move Y.
                 new Thread(() =>
                 {
-                    mouse_event(0x1, 0, step.Y, 0, 0);
+                    Proxy.Move(0, step.Y);
                 }).Start();
             }
         }

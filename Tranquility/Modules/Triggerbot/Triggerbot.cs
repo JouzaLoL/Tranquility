@@ -4,12 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using Serenity.Helpers;
-using Serenity.Objects;
+using Tranquility.Helpers;
+using Tranquility.Objects;
+using static Tranquility.Helpers.PrettyLog;
 
-using static Serenity.Helpers.PrettyLog;
-
-namespace Serenity.Modules.Triggerbot
+namespace Tranquility.Modules.Triggerbot
 {
     internal class Triggerbot : IModule
     {

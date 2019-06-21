@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Serenity.Helpers
+namespace Tranquility.Helpers
 {
     internal static class PrettyLog
     {

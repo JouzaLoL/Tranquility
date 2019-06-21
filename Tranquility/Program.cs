@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Serenity.Helpers;
-using Serenity.Modules;
-using Serenity.Modules.Aimbot;
-using Serenity.Modules.Anabot;
-using Serenity.Modules.Triggerbot;
-using Serenity.Modules.Widowbot;
-using static Serenity.Helpers.PrettyLog;
+using Tranquility.Helpers;
+using Tranquility.Modules;
+using Tranquility.Modules.Aimbot;
+using Tranquility.Modules.Anabot;
+using Tranquility.Modules.Triggerbot;
+using Tranquility.Modules.Widowbot;
+using static Tranquility.Helpers.PrettyLog;
 
-namespace Serenity
+namespace Tranquility
 {
     internal class Program
     {
@@ -26,6 +27,9 @@ namespace Serenity
             var settingsManager = new SettingsManager();
             settingsManager.LoadSettingsFromDefaultPath();
             LogInfo("Settings loaded successfully.");
+
+            var MouseProxy = new MouseProxy();
+            MouseHelper.Proxy = MouseProxy;
 
             // Start the aimbot.
             var aimbot = new Aimbot();
@@ -50,6 +54,10 @@ namespace Serenity
 
                     switch (commandRoot)
                     {
+                        case "close": 
+                            MouseProxy.Close();
+                            Process.GetCurrentProcess().Close();
+                            break;
                         case "aimbot":
                         case "aim":
                             aimbot.HandleCommand(commandArgs);
@@ -94,20 +102,20 @@ namespace Serenity
             while (true)
             {
                 // Register keypresses here.
-                if (MouseHelper.GetAsyncKeyState(0x61) < 0) // Numpad1
+                if (MouseHelper.GetAsyncKeyState(0x71) < 0) // Numpad1
                 {
                     SettingsManager.Aimbot.ForceHeadshot = !SettingsManager.Aimbot.ForceHeadshot;
                     LogInfo($"Force headshot: { SettingsManager.Aimbot.ForceHeadshot}");
 
-                    MouseHelper.keybd_event(0x61, 0, 0x2, 0);
+                    // MouseHelper.keybd_event(0x61, 0, 0x2, 0);
                     Thread.Sleep(200);
                 }
 
                 // toggle Fov box
-                if (MouseHelper.GetAsyncKeyState(0x62) < 0) // Numpad2
+                if (MouseHelper.GetAsyncKeyState(0x70) < 0) // Numpad2
                 {
                     drawhelper.ToggleFov();
-                    MouseHelper.keybd_event(0x62, 0, 0x2, 0);
+                    // MouseHelper.keybd_event(0x62, 0, 0x2, 0);
                     Thread.Sleep(200);
                 }
 

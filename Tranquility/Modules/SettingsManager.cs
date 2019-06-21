@@ -4,11 +4,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
-using Serenity.Helpers;
-using Serenity.Objects;
-using static Serenity.Helpers.PrettyLog;
+using Tranquility.Helpers;
+using Tranquility.Objects;
+using static Tranquility.Helpers.PrettyLog;
 
-namespace Serenity.Modules
+namespace Tranquility.Modules
 {
     internal class SettingsManager : IModule
     {
@@ -24,10 +24,10 @@ namespace Serenity.Modules
         {
             public AimbotSettings()
             {
-                AimKey = 0x02;
-                AntiShake = false;
-                ForceHeadshot = false;
-                TargetColor = Color.FromArgb(255, 0, 19);
+                AimKey = 0xA0;
+                AntiShake = true;
+                ForceHeadshot = true;
+                TargetColor = Color.FromArgb(229, 43, 18);
             }
 
             public Color TargetColor { get; set; }
@@ -43,7 +43,7 @@ namespace Serenity.Modules
         {
             public WidowbotSettings()
             {
-                AimKey = 0xA4;
+                AimKey = 0x05;
                 TargetColor = Color.FromArgb(215, 40, 35);
             }
 
@@ -73,9 +73,9 @@ namespace Serenity.Modules
         {
             public TriggerbotSettings()
             {
-                AimKey = 0xA4;
-                IsEnabled = false;
-                TargetColor = Color.FromArgb(254, 0, 0);
+                AimKey = 0x11;
+                IsEnabled = true;
+                TargetColor = Color.FromArgb(215, 40, 35);
             }
 
             public byte AimKey { get; set; }

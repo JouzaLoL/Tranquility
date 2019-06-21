@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-namespace Serenity.Helpers
+namespace Tranquility.Helpers
 {
     internal class ScreenHelper
     {

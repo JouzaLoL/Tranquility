@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Threading;
-using Serenity.Modules;
-using static Serenity.Helpers.PrettyLog;
+using Tranquility.Modules;
+using static Tranquility.Helpers.PrettyLog;
 using Timer = System.Timers.Timer;
 
 
-namespace Serenity.Helpers
+namespace Tranquility.Helpers
 {
     public class DrawHelper
     {

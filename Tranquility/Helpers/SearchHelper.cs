@@ -2,11 +2,11 @@
 using System.Drawing.Imaging;
 using System.Threading.Tasks;
 
-namespace Serenity.Helpers
+namespace Tranquility.Helpers
 {
     internal class SearchHelper
     {
-        public static Point SearchColor(ref Bitmap screenCapture, Color searchColor, int tolerance = 0)
+        public static Point SearchColor(ref Bitmap screenCapture, Color searchColor, int tolerance = 50)
         {
             unsafe
             {

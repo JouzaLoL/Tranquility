@@ -3,12 +3,11 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using Serenity.Helpers;
-using Serenity.Objects;
+using Tranquility.Helpers;
+using Tranquility.Objects;
+using static Tranquility.Helpers.PrettyLog;
 
-using static Serenity.Helpers.PrettyLog;
-
-namespace Serenity.Modules.Aimbot
+namespace Tranquility.Modules.Aimbot
 {
     internal class Aimbot : IModule
     {
@@ -60,7 +59,7 @@ namespace Serenity.Modules.Aimbot
                     var screenCapture = ScreenHelper.GetScreenCapture(MyFov.FieldOfView);
 
                     // Search for a target.
-                    var coordinates = SearchHelper.SearchColor(ref screenCapture, SettingsManager.Aimbot.TargetColor);
+                    var coordinates = SearchHelper.SearchColor(ref screenCapture, SettingsManager.Aimbot.TargetColor, 70);
 
                     // Only continue if a healthbar was found.
                     if (coordinates.X != 0 || coordinates.Y != 0)

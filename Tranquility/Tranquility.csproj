@@ -7,7 +7,7 @@
     <ProjectGuid>{D577D1E6-8CFE-4D99-B709-5985EBAB68FF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Serenity</RootNamespace>
+    <RootNamespace>Tranquility</RootNamespace>
     <AssemblyName>Dropbox</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Serenity.Program</StartupObject>
+    <StartupObject>Tranquility.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Dropbox.ico</ApplicationIcon>
@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Helpers\DrawHelper.cs" />
     <Compile Include="Helpers\MouseHelper.cs" />
+    <Compile Include="Helpers\MouseProxy.cs" />
     <Compile Include="Helpers\PrettyLog.cs" />
     <Compile Include="Helpers\ScreenHelper.cs" />
     <Compile Include="Helpers\SearchHelper.cs" />
